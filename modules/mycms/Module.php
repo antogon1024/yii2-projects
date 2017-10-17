@@ -18,7 +18,7 @@ class Module extends \yii\base\Module
     public function init()
     {
         parent::init();
-		$this->layout = 'mycms';
+		$this->layout = 'site';
         // custom initialization code goes here
     }
 }
