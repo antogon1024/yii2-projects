@@ -9,6 +9,8 @@ use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
 
+use yii\widgets\Menu;
+
 AppAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
@@ -20,6 +22,7 @@ AppAsset::register($this);
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
+	<? $this->registerJsFile('/js/site/site.js', ['depends' => [\yii\web\JqueryAsset::className()], 'defer'=>'defer']); ?>
 </head>
 <body>
 <?php $this->beginBody() ?>
@@ -56,12 +59,75 @@ AppAsset::register($this);
     NavBar::end();
     ?>
 
-    <div class="container">
-        <?= Breadcrumbs::widget([
+   <!-- <div class="container">
+        <?//= Breadcrumbs::widget([
+            //'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+        //]) ?>
+        <?//= $content ?>
+    </div>-->
+	
+	
+	<div class="container">
+		<?= Breadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
         ]) ?>
-        <?= $content ?>
-    </div>
+		<div class="row">
+			<div class="col-md-4">
+				<?= Menu::widget([
+					'items' => [
+					// Important: you need to specify url as 'controller/action',
+					// not just as 'controller' even if default action is used.
+					['label' => 'Home', 'url' => ['site/index']],
+					['label' => 'Bootstrap', 'url' => ['bootstrap/index']],
+					['label' => 'Converter', 'url' => ['converter/index']],
+					// 'Products' menu item will be selected as long as the route is 'product/index'
+					['label' => 'Products', 'url' => ['product/index'], 'items' => [
+						['label' => 'New Arrivals', 'url' => ['product/index', 'tag' => 'new']],
+						['label' => 'Most Popular', 'url' => ['product/index', 'tag' => 'popular']],
+					]],
+					['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
+					
+					['label' => 'Кэширование', 'url' => ['caching/index'], 'items' => [
+						['label' => 'Кэширование данных', 'url' => ['caching/data', 'tag' => 'new']],
+						['label' => 'Кэширование страниц', 'url' => ['caching/fragment', 'tag' => 'popular']],
+					]],
+				],
+				
+				'options' => [
+					'id'=>'helpid',
+				],
+			]);?>
+			
+			
+			
+			
+			
+			
+			
+				<?
+					echo Menu::widget([
+    'items' => [
+        ['label' => 'Главная', 'url' => ['site/index']],
+		['label' => 'О компании', 'url' => ['site/about']],
+        ['label' => 'Услуги',
+			'url' => ['services/index'],
+			'options'=>['class'=>'dropdown'],
+			'template' => '<a href="{url}" class="url-class">{label}</a>',
+			'items' => [
+				['label' => 'Юридические услуги', 'url' => ['services/juridical-services']],
+				['label' => 'Оценочные услуги', 'url' => ['services/valuation-services']],
+			]
+		],
+        ['label' => 'Контакты', 'url' => ['site/contacts']]
+        
+    ],
+	'submenuTemplate' => "\n<ul class='dropdown-menu' role='menu'>\n{items}\n</ul>\n",
+]);
+				?>
+			</div>
+			<div class="col-md-8"><?= $content ?></div>
+		</div>
+	</div>
 </div>
 
 <footer class="footer">

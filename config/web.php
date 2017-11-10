@@ -52,7 +52,27 @@ $config = [
             'showScriptName' => false,
             'rules' => [
 				//'<module:\w+>/<controller:\w+>/<action:\w+>' => '<module>/<controller>/<action>',
+				'<url:Knigi.*>'=>'test/index',
+				'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
 				
+				//'test/*' => 'test/index',
+				//'shop/*'=>'shop/default/index',
+				//'mycms/<[.]+>'=>'mycms/default/index',
+				//'<url:[\w\/]+>'=>'test/index',
+				//'<url>'=>'test/index',
+				
+				
+				//'<url:.*>'=>'test/index',
+				
+				//'<url:a.+>'=>'test/index',
+				//'<url:b>'=>'site/index',
+				
+				//'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
+				/*[
+					'pattern' => '.*',
+					'route' => 'test/index',
+					//'suffix' => '/',
+				]*/
             ],
         ],
         
@@ -76,5 +96,6 @@ if (YII_ENV_DEV) {
         //'allowedIPs' => ['127.0.0.1', '::1'],
     ];
 }
-
+//print_r($config);
+//echo Yii::$app->controller->id;
 return $config;
