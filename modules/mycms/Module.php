@@ -16,9 +16,10 @@ class Module extends \yii\base\Module
      * @inheritdoc
      */
     public function init()
-    {
+    {   //echo 'ggg';exit;
         parent::init();
 		$this->layout = 'site';
-        // custom initialization code goes here
+       
+	   // custom initialization code goes here
     }
 }

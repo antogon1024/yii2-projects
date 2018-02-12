@@ -14,6 +14,9 @@ class SiteController extends Controller
     /**
      * @inheritdoc
      */
+	//public $requestedRoute = 'pro';
+	//public $layout = 'projects';
+	
     public function behaviors()
     {//exit;
         return [
@@ -60,7 +63,8 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+
+		return $this->render('index');
     }
 
     /**
@@ -82,25 +86,29 @@ class SiteController extends Controller
             'model' => $model,
         ]);
     }
-
-    /**
-     * Logout action.
-     *
-     * @return string
-     */
+	
     public function actionLogout()
     {
         Yii::$app->user->logout();
 
         return $this->goHome();
     }
-
+	
+	public function actionHelp()
+    {
+		return $this->render('help');
+	}
+	
+	public function actionProjects()
+    {
+		return $this->render('projects');
+	}
     /**
      * Displays contact page.
      *
      * @return string
      */
-    public function actionContact()
+   /* public function actionContact()
     {
         $model = new ContactForm();
         if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['adminEmail'])) {
@@ -111,14 +119,14 @@ class SiteController extends Controller
         return $this->render('contact', [
             'model' => $model,
         ]);
-    }
+    }*/
 
     /**
      * Displays about page.
      *
      * @return string
      */
-    public function actionAbout()
+   /* public function actionAbout()
     {
         return $this->render('about');
     }
@@ -127,5 +135,5 @@ class SiteController extends Controller
 	public function actionComp()
     {
         return $this->render('index');
-    }
+    }*/
 }

@@ -11,6 +11,10 @@ use app\assets\AppAsset;
 
 use yii\widgets\Menu;
 
+//use yii\helpers\ArrayHelper;
+use app\library\antogon1024\AntMenu;
+
+
 AppAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
@@ -28,9 +32,9 @@ AppAsset::register($this);
 <?php $this->beginBody() ?>
 
 <div class="wrap">
-    <?php
+    <?php 
     NavBar::begin([
-        'brandLabel' => 'My Company',
+        'brandLabel' => 'antogon1024',
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top',
@@ -39,10 +43,19 @@ AppAsset::register($this);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
-            ['label' => 'Home', 'url' => ['/site/index']],
-            ['label' => 'About', 'url' => ['/site/about']],
-            ['label' => 'Contact', 'url' => ['/site/contact']],
-            Yii::$app->user->isGuest ? (
+			['label' => 'Home', 'url' => ['/']],
+			['label' => 'Help', 'url' => ['/help1']],
+			['label' => 'Проекты', 'url' => ['/site/projects'], 'items'=>[
+				['label' => 'Конвертер валют', 'url' => ['/converter/index']],
+				['label' => 'Динамика курсов валют', 'url' => ['/dinamic-courses/usd']],
+				['label' => 'Курсы валют', 'url' => ['/courses-valute/index']],
+				['label' => 'CMS', 'url' => ['/mycms']],
+			]],
+		   //['label' => 'About', 'url' => ['/site/about']],
+            //['label' => 'Contact', 'url' => ['/site/contact']],
+            
+			
+			Yii::$app->user->isGuest ? (
                 ['label' => 'Login', 'url' => ['/site/login']]
             ) : (
                 '<li>'
@@ -53,7 +66,16 @@ AppAsset::register($this);
                 )
                 . Html::endForm()
                 . '</li>'
-            )
+            ),
+			
+			(\Yii::$app->language == 'en-US') ? (
+				['label' => 'Рус', 'url' => ['/ru']]
+			) : (
+				['label' => 'Eng', 'url' => ['/en']]
+			)
+			
+			
+			//\Yii::$app->language;
         ],
     ]);
     NavBar::end();
@@ -67,66 +89,13 @@ AppAsset::register($this);
     </div>-->
 	
 	
-	<div class="container">
+<div class="container">
 		<?= Breadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
         ]) ?>
-		<div class="row">
-			<div class="col-md-4">
-				<?= Menu::widget([
-					'items' => [
-					// Important: you need to specify url as 'controller/action',
-					// not just as 'controller' even if default action is used.
-					['label' => 'Home', 'url' => ['site/index']],
-					['label' => 'Bootstrap', 'url' => ['bootstrap/index']],
-					['label' => 'Converter', 'url' => ['converter/index']],
-					// 'Products' menu item will be selected as long as the route is 'product/index'
-					['label' => 'Products', 'url' => ['product/index'], 'items' => [
-						['label' => 'New Arrivals', 'url' => ['product/index', 'tag' => 'new']],
-						['label' => 'Most Popular', 'url' => ['product/index', 'tag' => 'popular']],
-					]],
-					['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
-					
-					['label' => 'Кэширование', 'url' => ['caching/index'], 'items' => [
-						['label' => 'Кэширование данных', 'url' => ['caching/data', 'tag' => 'new']],
-						['label' => 'Кэширование страниц', 'url' => ['caching/fragment', 'tag' => 'popular']],
-					]],
-				],
-				
-				'options' => [
-					'id'=>'helpid',
-				],
-			]);?>
-			
-			
-			
-			
-			
-			
-			
-				<?
-					echo Menu::widget([
-    'items' => [
-        ['label' => 'Главная', 'url' => ['site/index']],
-		['label' => 'О компании', 'url' => ['site/about']],
-        ['label' => 'Услуги',
-			'url' => ['services/index'],
-			'options'=>['class'=>'dropdown'],
-			'template' => '<a href="{url}" class="url-class">{label}</a>',
-			'items' => [
-				['label' => 'Юридические услуги', 'url' => ['services/juridical-services']],
-				['label' => 'Оценочные услуги', 'url' => ['services/valuation-services']],
-			]
-		],
-        ['label' => 'Контакты', 'url' => ['site/contacts']]
-        
-    ],
-	'submenuTemplate' => "\n<ul class='dropdown-menu' role='menu'>\n{items}\n</ul>\n",
-]);
-				?>
-			</div>
-			<div class="col-md-8"><?= $content ?></div>
-		</div>
+	<div class="row">
+		<div class="col-md-12"><?= $content ?></div>
+	</div>
 	</div>
 </div>
 

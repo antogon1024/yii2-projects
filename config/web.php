@@ -1,20 +1,40 @@
 <?php
-
 $params = require(__DIR__ . '/params.php');
 
 $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
+	//'language' => 'ru-RU', 
     
 	'modules' => [
 		'mycms' => [
             'class' => 'app\modules\mycms\module',
         ],
+		'help1' => [
+            'class' => 'app\modules\help1\module',
+        ],
     ],
-	
-	'bootstrap' => ['log'],
+	//'onBeginRequest'=>'test',
+	'aliases' => [
+        //'@mysite' => 'http://mysite.com'
+		//'@http://yii2b/asd'=>'http://yii2b/site/index'
+    ],
+	'bootstrap' => [
+		//'app\config\bootstrap',
+	],
     'components' => [
-        'request' => [
+        'i18n' => [
+			'translations' => [
+				'*' => [
+					'class' => 'yii\i18n\PhpMessageSource'
+				],
+			],
+		],
+		
+		'authManager' => [
+            'class' => 'yii\rbac\DbManager',
+        ],
+		'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => '-OfxGE7CLNPW75fEHtC_QiBHOe6h3RnM',
 			'baseUrl'=> '',
@@ -52,8 +72,25 @@ $config = [
             'showScriptName' => false,
             'rules' => [
 				//'<module:\w+>/<controller:\w+>/<action:\w+>' => '<module>/<controller>/<action>',
-				'<url:Knigi.*>'=>'test/index',
-				'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
+				//'<url:help.*>'=>'test/index',
+				
+				//'<controller:\w+>/<url:.*>/<action:\w+>'=>'<controller>/<action>',
+				
+				//'<url:.+>/<controller:\w+>/<action:\w+>/'=>'<controller>/<action>',
+				//'<url:.+>/<controller:\w+>/'=>'<controller>/index',
+				
+				//'<controller:\w+>/<action:\w+>/'=>'<controller>/<action>',
+				//['class' => 'app\library\MyUrlRule', 'pattern' => 'gelpp\/.*', 'route' => '',],
+				
+				['class' => 'app\library\MyUrlRule', 'language'=>['ru', 'en']],
+				
+				//'<module:help1>/<url:.*>/<controller:\w+>/<action:\w+>/'=>'<module>/<controller>/<action>',
+				
+				//['class' => 'app\library\MyUrlRule']
+				
+				//app\components\CustomUrlRule
+				
+				//'<controller:\w+>' => '<controller>/index',
 				
 				//'test/*' => 'test/index',
 				//'shop/*'=>'shop/default/index',

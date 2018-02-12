@@ -1,6 +1,7 @@
 html,
 body {
     height: 100%;
+	
 }
 
 .wrap {
@@ -115,4 +116,8 @@ a.desc:after {
 }
 
 #helpid li ul{display:none;}
-#helpid .active ul {display:block;}
+#helpid .active > ul {display:block;}
+#helpid .add-active > a{color:black;font-weight:700;}
+/*A:visited {color:red;}*/
+
+
