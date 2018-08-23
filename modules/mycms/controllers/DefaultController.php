@@ -15,6 +15,7 @@ class DefaultController extends Controller
     {
         parent::init();
 		$this->layout = 'site2';
+		echo 'site';exit;
     }
    
     public function actionIndex()

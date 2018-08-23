@@ -13,6 +13,9 @@ $config = [
 		'help1' => [
             'class' => 'app\modules\help1\module',
         ],
+		'cabinet' => [
+            'class' => 'app\modules\cabinet\module',
+        ],
     ],
 	//'onBeginRequest'=>'test',
 	'aliases' => [
@@ -20,7 +23,10 @@ $config = [
 		//'@http://yii2b/asd'=>'http://yii2b/site/index'
     ],
 	'bootstrap' => [
-		//'app\config\bootstrap',
+		'app\config\bootstrap',
+		'app\modules\mycms\Bootstrap',
+		'app\modules\help1\Bootstrap',
+		'app\modules\cabinet\Bootstrap',
 	],
     'components' => [
         'i18n' => [
@@ -31,9 +37,9 @@ $config = [
 			],
 		],
 		
-		'authManager' => [
-            'class' => 'yii\rbac\DbManager',
-        ],
+		//'authManager' => [
+            //'class' => 'yii\rbac\DbManager',
+        //],
 		'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => '-OfxGE7CLNPW75fEHtC_QiBHOe6h3RnM',
@@ -66,6 +72,7 @@ $config = [
             ],
         ],
         'db' => require(__DIR__ . '/db.php'),
+		//'db' => ['tablePrefix' => 'tbl_'],
         
         'urlManager' => [
             'enablePrettyUrl' => true,
@@ -73,7 +80,8 @@ $config = [
             'rules' => [
 				//'<module:\w+>/<controller:\w+>/<action:\w+>' => '<module>/<controller>/<action>',
 				//'<url:help.*>'=>'test/index',
-				
+//'/mycms/admin/<controller:\w+>/<action:\w+>/'=>'<controller>/<action>',	
+//'<module:mycms>/<url:.*>/<controller:\w+>/<action:\w+>/'=>'<module>/admin/<controller>/<action>',	
 				//'<controller:\w+>/<url:.*>/<action:\w+>'=>'<controller>/<action>',
 				
 				//'<url:.+>/<controller:\w+>/<action:\w+>/'=>'<controller>/<action>',
@@ -82,7 +90,7 @@ $config = [
 				//'<controller:\w+>/<action:\w+>/'=>'<controller>/<action>',
 				//['class' => 'app\library\MyUrlRule', 'pattern' => 'gelpp\/.*', 'route' => '',],
 				
-				['class' => 'app\library\MyUrlRule', 'language'=>['ru', 'en']],
+	//['class' => 'app\library\MyUrlRule', 'language'=>['ru', 'en']],
 				
 				//'<module:help1>/<url:.*>/<controller:\w+>/<action:\w+>/'=>'<module>/<controller>/<action>',
 				

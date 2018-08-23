@@ -8,6 +8,7 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
+use app\models\SignupForm;
 
 class SiteController extends Controller
 {
@@ -63,7 +64,6 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-
 		return $this->render('index');
     }
 
@@ -80,7 +80,8 @@ class SiteController extends Controller
 
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
+            //echo '<pre>';print_r(Yii::$app->user);exit;
+			return $this->goBack();
         }
         return $this->render('login', [
             'model' => $model,
@@ -108,7 +109,7 @@ class SiteController extends Controller
      *
      * @return string
      */
-   /* public function actionContact()
+    public function actionContact()
     {
         $model = new ContactForm();
         if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['adminEmail'])) {
@@ -119,7 +120,23 @@ class SiteController extends Controller
         return $this->render('contact', [
             'model' => $model,
         ]);
-    }*/
+    }
+	
+	public function actionSignup()
+    {
+        $model = new SignupForm();
+        if ($model->load(Yii::$app->request->post())) {
+            if ($user = $model->signup()) {
+                if (Yii::$app->getUser()->login($user)) {
+                    return $this->goHome();
+                }
+            }
+        }
+
+        return $this->render('signup', [
+            'model' => $model,
+        ]);
+    }
 
     /**
      * Displays about page.

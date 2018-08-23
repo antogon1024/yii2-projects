@@ -21,7 +21,9 @@ AppAsset::register($this);
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>">
 <head>
+    <link rel="shortcut icon" href="/web/favicon.ico" type="image/x-icon" />
     <meta charset="<?= Yii::$app->charset ?>">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
@@ -50,6 +52,8 @@ AppAsset::register($this);
 				['label' => 'Динамика курсов валют', 'url' => ['/dinamic-courses/usd']],
 				['label' => 'Курсы валют', 'url' => ['/courses-valute/index']],
 				['label' => 'CMS', 'url' => ['/mycms']],
+                ['label' => 'Личный кабинет', 'url' => ['/cabinet']],
+				['label' => 'Доступы', 'url' => ['/access/index']],
 			]],
 		   //['label' => 'About', 'url' => ['/site/about']],
             //['label' => 'Contact', 'url' => ['/site/contact']],
