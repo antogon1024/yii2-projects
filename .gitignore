@@ -30,3 +30,8 @@ tests/_output/*
 tests/_support/_generated
 
 web/ctest
+
+web/crossfit
+web/images
+web/fonts
+web/data
