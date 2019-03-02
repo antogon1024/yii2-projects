@@ -10,8 +10,6 @@ use yii\db\ActiveRecord;
 use app\modules\cabinet\models\User;
 use yii\data\Pagination;
 
-//use yii\web\UploadedFile;
-
 class Clients extends ActiveRecord
 //class Clients extends Model
 {
