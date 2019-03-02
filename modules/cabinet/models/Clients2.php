@@ -24,7 +24,6 @@ class Clients extends ActiveRecord
     public $password1;
     public $password2;
     public $role;
-    //public $phone;
     //public $avatar;
     //public $avatar1;
     public $birth_date1;
