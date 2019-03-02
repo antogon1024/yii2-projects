@@ -72,7 +72,28 @@ $config = [
             ],
         ],
         'db' => require(__DIR__ . '/db.php'),
-		//'db' => ['tablePrefix' => 'tbl_'],
+		//'db' => ['tablePrefix' => 'cab_'],
+		'assetManager' => [
+            'class' => 'yii\web\AssetManager',
+            'bundles' => [
+                'yii\web\JqueryAsset' => [
+                    'js' => [
+                        'jquery.min.js'
+                        //YII_ENV_DEV ? 'jquery.js' : 'jquery.min.js'
+                    ]
+                ],
+                'yii\bootstrap\BootstrapAsset' => [
+                    'css' => [
+                                YII_ENV_DEV ? 'css/bootstrap.css' : 'css/bootstrap.min.css',
+                    ]
+                ],
+                'yii\bootstrap\BootstrapPluginAsset' => [
+                    'js' => [
+                        YII_ENV_DEV ? 'js/bootstrap.js' : 'js/bootstrap.min.js',
+                    ]
+                ]
+            ],
+        ],
         
         'urlManager' => [
             'enablePrettyUrl' => true,

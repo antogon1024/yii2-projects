@@ -1,4 +1,5 @@
 <?php
+//phpinfo();exit;
 ini_set('error_reporting', E_ALL);
 //xdebug_start_trace();
 // comment out the following two lines when deployed to production

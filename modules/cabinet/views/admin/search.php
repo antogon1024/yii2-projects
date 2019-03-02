@@ -1,135 +1,95 @@
 <?php
-$this->registerCssFile("@web/css/mod_cabinet/admin/mclients.css");
+use yii\widgets\Pjax;
+use yii\helpers\Html;
 
-$this->registerJsFile('@web/js/mod_cabinet/jquery.min.js');
-$this->registerJsFile('@web/js/mod_cabinet/main.js');
-$this->registerJsFile('@web/js/mod_cabinet/admin/mclients.js');
-
-use yii\widgets\LinkPager;
 ?>
 
-<div class="uk-width-large-3-10">
-    <div class="22uk-panel uk-panel-box ant-shadow antm-grid-1">
-       <?php  include __DIR__ . '/_sidebar.php'; ?>
-    </div>
-</div>
+
 
 <div id="ant-list-1" class="uk-width-large-7-10">
+
+
     <div class="uk-panel uk-panel-box ant-shadow" style="padding:15px;margin-bottom:40px;">
-        <ul id="ant-width" class="uk-grid uk-grid-width-1-1 uk-grid-width-medium-1-2 uk-grid-width-large-1-2 uk-text-left" data-uk-grid-margin="">
+        <ul id="ant-width"
+            class="uk-grid uk-grid-width-1-1 uk-grid-width-medium-1-2 uk-grid-width-large-1-2 uk-text-left"
+            data-uk-grid-margin="">
             <li id="ant-width-1" class="uk-text-bold">
                 <div style="position:relative;">
                     <div id="ant-angle-1">
-                        <span>Сортировать: </span> <span id="ant-enter"><?=$filter?></span>
+                        <span>Сортировать: </span> <span id="ant-enter"><?php //=$this->filter?></span>
                         <span id="ant-angle-2" class="uk-icon-angle-down"></span>
                     </div>
                     <div class="ant-list-1" style="position:absolute;z-index:100;">
                         <p filter="tariff">Тариф</p>
+
                         <p filter="full_name">Имя</p>
-                        <p filter="created_at">Новые</p>
+
+                        <p filter="registerDate">Новые</p>
 
                     </div>
                 </div>
 
             </li>
             <li id="ant-width-2" class="uk-text-right">
-                <span style="position:relative;"><input id="ant-search-1" type="text"><span class="uk-icon-search"></span></span>
+                <span style="position:relative;"><input id="ant-search-1" type="text"><span
+                        class="uk-icon-search"></span></span>
             </li>
         </ul>
     </div>
-    <?php if (count($data) == 0):?>
-    <div class="ant-not-find">Ничего не найдено.</div>
-    <?php endif; ?>
-    <ul class="uk-grid uk-grid-width-1-1 uk-grid-width-medium-1-2 uk-grid-width-large-1-3 uk-text-left" data-uk-grid-margin="">
 
 
-        <?php foreach($data as $k=>$v): ?>
+    <ul class="uk-grid uk-grid-width-1-1 uk-grid-width-medium-1-2 uk-grid-width-large-1-3 uk-text-left"
+        data-uk-grid-margin="">
+        <?php //if( $this->search == 1 && empty($this->data) ):?>
+        <center style="width:100%;font-weight:bold;">Ничего не найдено.</center>
 
-            <li class="ant-li-1">
-                <div class="uk-panel uk-panel-box ant-shadow uk-text-center ant-blocks" style="position:relative;">
-                    <div class="ant-block-1">
-                        <span id="<?=$v['user_id']?>" class="ant-icon-cog ant-edit-1">
-                            <span class="uk-icon-cog"></span>
-                        </span>
-                        <!--
-                        <div style="display:none" class="ant-data" field="photo"><?//=$v['photo']?></div>
-                        <div style="display:none" class="ant-data" field="phone"><?//=$v['phone']?></div>
-                        <div style="display:none" class="ant-data" field="username"><?//=$v['username']?></div>
-                        <div style="display:none" class="ant-data" field="email"><?//=$v['email']?></div>
-                        <div style="display:none" class="ant-data" field="user_id"><?//=$v['user_id']?></div>
-                        -->
-                        <img class="ant-photo-1" src="/web/images/mod_cabinet/clients/<?=$v['avatar']?>" width="90">
-                        <div class="ant-name-1 ant-data" field="name">
-                            <?=$v['full_name']?>
-                        </div>
 
-                        <div class="ant-label-1">тариф</div>
-                        <?php if($v['tariff'] != ''): ?>
-                            <div class="ant-tariff-1 ant-data" field="tariff"><?=$v['tariff']?></div>
-                        <?php else: ?>
-                            <div class="ant-tariff-1 ant-data" field="tariff">Не выбран</div>
-                        <?php endif; ?>
-                    </div>
+        <?php //endif; ?>
 
-                    <div class="ant-info-1 ant-shadow" style="">
-                        <div class="ant-small-1">Дата рождения:</div>
-                        <div style="display:none" class="ant-margin-1 ant-data" field="birth_date"><?=$v['birth_date']?></div>
-                        <div  class="ant-margin-1"><?=$v['birth_date1']?></div>
 
-                        <?php if($v['tariff'] != ''): ?>
-                        <div class="ant-small-1">Действие тарифа:</div>
-                        <div class="ant-margin-1 ant-data" field="">С <?=$v['start']?> по <?=$v['end']?></div>
-                        <input type="hidden" name="start" value="<?=$v['start']?>">
-                        <input type="hidden" name="end" value="<?=$v['end']?>">
+        <?php //foreach ($data as $k2 => $v2){} ?>
+        <?php //endforeach; ?>
 
-                        <div class="ant-small-1">Остаток посещений:</div>
-                        <div class="ant-margin-1 ant-data" field="visits"><?=$v['visits']?></div>
-                        <?php endif; ?>
 
-                        <div class="ant-padding-1">
-                            <button id="<?=$v['id']?>" user_id="<?=$v['user_id']?>" class="ant-button-1 ant-delete-1" type="button" data-uk-modal="{target:'#modal1', center:true}">Удалить</button>
-                        </div>
-                    </div>
-                </div>
-            </li>
+        <?php Pjax::begin(); ?>
+        <a id="aaa" class="btn btn-lg btn-primary" href="/cabinet/admin/search">Обновить3</a>
 
-        <?php endforeach; ?>
+        <p>Время сервера: <?= $time ?></p>
+        <?php Pjax::end(); ?>
+
     </ul>
-    <div style="text-align: center">
-        <?= LinkPager::widget([
-            'pagination' => $pages,
-            'maxButtonCount' => 5,
-            'nextPageLabel' => 'Вперед',
-            'prevPageLabel' => 'Назад',
-            //'nextPageCssClass' => 'css-class',
-            //'prevPageCssClass' => 'css-class'
-        ]); ?>
-    </div>
 
 </div>
 
 
 <div id="ant-create-2" class="uk-width-large-5-10">
+
+
     <div class="uk-panel-box ant-shadow">
         <div class="antm-block-1">
             <h4 id="ant-capt2" class="222uk-panel-title uk-text-bold antm-caption">СОЗДАНИЕ НОВОГО АККАУНТА</h4>
         </div>
 
-        <form id="ant-register-client" name="form" action="/cabinet/register-client" method="post" enctype="multipart/form-data">
-            <input type="hidden" name="<?=Yii::$app->request->csrfParam; ?>" value="<?=Yii::$app->request->getCsrfToken(); ?>" />
+        <form id="ant-register-client" name="form" action="/cabinet/register-client" method="post"
+              enctype="multipart/form-data">
+            <input type="hidden" name="<?= Yii::$app->request->csrfParam; ?>"
+                   value="<?= Yii::$app->request->getCsrfToken(); ?>"/>
             <input id="ant-edit" type="hidden" name="edit" value="0">
             <input id="ant-unique-username" type="hidden" name="unique-username" value="0">
             <input id="ant-unique-email" type="hidden" name="unique-email" value="0">
             <input id="ant-user_id" type="hidden" name="user_id">
             <input id="ant-id" type="hidden" name="id">
+
             <div id="ant-wrap-form-1">
                 <input type="hidden" name="Clients[role]" value="client">
+
 
                 <div class="ant-block-1 ant-inline">
                     <div class="uk-text-small uk-text-bold ant-title-field">
                         <span class="ant-title">Фамилия</span><span class="ant-required"></span>
                     </div>
                     <input id="ant-full_name1" class="ant-input-1" type="text" name="Clients[full_name1]">
+
                     <div class="ant-errors error-full_name1"></div>
                 </div>
                 <div class="ant-block-1 ant-inline ant-inline-center">
@@ -137,6 +97,7 @@ use yii\widgets\LinkPager;
                         <span class="ant-title">Имя</span><span class="ant-required"></span>
                     </div>
                     <input id="ant-full_name2" class="ant-input-1" type="text" name="Clients[full_name2]">
+
                     <div class="ant-errors error-full_name2"></div>
                 </div>
                 <div class="ant-block-1 ant-inline">
@@ -144,10 +105,12 @@ use yii\widgets\LinkPager;
                         <span class="ant-title">Отчество</span><span class="ant-required"></span>
                     </div>
                     <input id="ant-full_name3" class="ant-input-1" type="text" name="Clients[full_name3]">
+
                     <div class="ant-errors error-full_name3"></div>
                 </div>
                 <div class="ant-block-1 ant-inline">
-                    <div class="uk-text-small uk-text-bold ant-title-field">Число рождения<span class="ant-required"></span></div>
+                    <div class="uk-text-small uk-text-bold ant-title-field">Число рождения<span
+                            class="ant-required"></span></div>
                     <select class="form-control" name="Clients[birth_day]" id="ant-birth_day" validate="true">
                         <option value="0">день</option>
                         <option value="1">1</option>
@@ -182,10 +145,12 @@ use yii\widgets\LinkPager;
                         <option value="30">30</option>
                         <option value="31">31</option>
                     </select>
+
                     <div class="ant-errors error-birth_day"></div>
                 </div>
                 <div class="ant-block-1 ant-inline ant-inline-center">
-                    <div class="uk-text-small uk-text-bold ant-title-field">Месяц рождения<span class="ant-required"></span></div>
+                    <div class="uk-text-small uk-text-bold ant-title-field">Месяц рождения<span
+                            class="ant-required"></span></div>
                     <select class="form-control" name="Clients[birth_month]" id="ant-birth_month" validate="true">
                         <option value="0">месяц</option>
                         <option value="1">января</option>
@@ -201,10 +166,12 @@ use yii\widgets\LinkPager;
                         <option value="11">ноября</option>
                         <option value="12">декабря</option>
                     </select>
+
                     <div class="ant-errors error-birth_month"></div>
                 </div>
                 <div class="ant-block-1 ant-inline">
-                    <div class="uk-text-small uk-text-bold ant-title-field"><span class="ant-title">Год рождения</span><span class="ant-required"></span></div>
+                    <div class="uk-text-small uk-text-bold ant-title-field"><span
+                            class="ant-title">Год рождения</span><span class="ant-required"></span></div>
                     <select class="form-control" name="Clients[birth_year]" id="ant-birth_year" validate="true">
                         <option value="0">год</option>
                         <option value="2002">2002</option>
@@ -268,97 +235,85 @@ use yii\widgets\LinkPager;
                         <option value="1944">1944</option>
                         <option value="1943">1943</option>
                     </select>
+
                     <div class="ant-errors error-birth_year"></div>
                 </div>
 
                 <div class="ant-block-1 ant-inline2 ant-inline-left">
-                    <div class="uk-text-small uk-text-bold ant-title-field"><span class="ant-title">Телефон</span><span class="ant-required"></span></div>
+                    <div class="uk-text-small uk-text-bold ant-title-field"><span class="ant-title">Телефон</span><span
+                            class="ant-required"></span></div>
                     <input id="ant-phone" class="ant-input-1 ant-data" field="phone" type="text" name="Clients[phone]">
+
                     <div class="ant-errors error-phone"></div>
                 </div>
 
 
                 <div class="ant-block-1 ant-inline2">
-                    <div class="uk-text-small uk-text-bold ant-title-field">Логин<span class="ant-required"></span></div>
+                    <div class="uk-text-small uk-text-bold ant-title-field">Логин<span class="ant-required"></span>
+                    </div>
                     <input id="ant-username" class="ant-input-1" type="text" name="Clients[username]">
+
                     <div class="ant-errors error-username"></div>
                 </div>
 
                 <div class="ant-block-1 ant-inline2 ant-inline-left">
-                    <div class="uk-text-small uk-text-bold ant-title-field">Пароль<span class="ant-required"></span></div>
+                    <div class="uk-text-small uk-text-bold ant-title-field">Пароль<span class="ant-required"></span>
+                    </div>
                     <input id="ant-password1" class="ant-input-1" type="password" name="Clients[password1]">
+
                     <div class="ant-errors error-password1"></div>
                 </div>
                 <div class="ant-block-1 ant-inline2">
-                    <div class="uk-text-small uk-text-bold ant-title-field">Повторите пароль<span class="ant-required"></span></div>
+                    <div class="uk-text-small uk-text-bold ant-title-field">Повторите пароль<span
+                            class="ant-required"></span></div>
                     <input id="ant-password2" class="ant-input-1" type="password" name="Clients[password2]">
+
                     <div class="ant-errors error-password2"></div>
                 </div>
 
                 <div class="ant-block-1 ant-inline2 ant-inline-left">
-                    <div class="uk-text-small uk-text-bold ant-title-field">Адрес электронной почты<span class="ant-required"></span></div>
+                    <div class="uk-text-small uk-text-bold ant-title-field">Адрес электронной почты<span
+                            class="ant-required"></span></div>
                     <input id="ant-email" class="ant-input-1" type="text" name="Clients[email]">
+
                     <div class="ant-errors error-email"></div>
                 </div>
 
+
                 <div class="ant-block-1 ant-inline2">
-                    <a class="uk-form-file" style="text-decoration:none;">
-                        <div class="uk-text-small uk-text-bold ant-color-4 ant-title-field">Загрузить аватар<span class="ant-required"></span></div>
-                        <input id="upload-select" type="file" name="Clients[avatar]">
-                    </a>
+                    <!-- <a class="uk-form-file" style="text-decoration:none;">
+                         <div class="uk-text-small uk-text-bold ant-color-4 ant-title-field">Загрузить аватар<span class="ant-required"></span></div>
+                         <input id="upload-select" type="file" name="Clients[avatar]">
+                     </a>-->
                     <div>
-                        <input name="avatar1" id="ant-avatar-1" class="ant-input-1" type="text" style="cursor:text;" readonly="">
+                        <input name="avatar1" id="ant-avatar-1" class="ant-input-1" type="text" style="cursor:text;"
+                               readonly="">
 
                         <div class="ant-errors error-avatar"></div>
                     </div>
 
 
-
-
-
-
                 </div>
                 <div style="clear:left;"></div>
 
-                <input id="ant-field-form" type="hidden" value="full_name1,full_name2,full_name3,birth_day,birth_month,birth_year,phone,login,email,password-1,password-2,avatar">
+                <input id="ant-field-form" type="hidden"
+                       value="full_name1,full_name2,full_name3,birth_day,birth_month,birth_year,phone,login,email,password-1,password-2,avatar">
                 <input type="hidden" name="group" value="2">
 
             </div>
 
-            <button id="ant-registration-client" type="button" class="2ant-btn 2ant-btn-primary 2ant-btn-lg ant-button-3">Сохранить</button>
+            <button id="ant-registration-client" type="button"
+                    class="2ant-btn 2ant-btn-primary 2ant-btn-lg ant-button-3">Сохранить
+            </button>
             <input id="ant-cancel-1" class="ant-button-3" type="button" value="Отменить">
         </form>
 
     </div>
 </div>
 
-<div style="display:none;">
-    <form id="filter-form" name="form" action="" method="post">
-        <input type="hidden" name="<?=Yii::$app->request->csrfParam; ?>" value="<?=Yii::$app->request->getCsrfToken();?>" />
-        <input id="filter-input-1" type="hidden" name="filter" value="">
-    </form>
 
-    <form id="search-form" name="form" action="" method="post">
-        <input type="hidden" name="<?=Yii::$app->request->csrfParam; ?>" value="<?=Yii::$app->request->getCsrfToken();?>" />
-        <input id="search-input-1" type="hidden" name="search" value="">
-    </form>
-
-    <form id="delete-form" name="form" action="" method="post">
-        <input type="hidden" name="<?=Yii::$app->request->csrfParam; ?>" value="<?=Yii::$app->request->getCsrfToken();?>" />
-        <input id="delete-form-1" type="hidden" name="form-delete" value="">
-        <input id="delete-form-2" type="hidden" name="user_id" value="">
-    </form>
-</div>
-
-<div id="modal1" class="uk-modal" aria-hidden="true" style="display: none; overflow-y: scroll;">
-    <div class="uk-modal-dialog" style="width:400px;background:#EBF8FC;">
-        <a href="" class="uk-modal-close uk-close"></a>
-        <center class="ant-modal-1">Подтвердите удаление клиента</center>
-        <center style="margin-top:40px;">
-            <button id="ant-delete-1" class="ant-button-4 uk-text-small" type="button" style="margin-right:20px;">Удалить</button>
-            <button id="ant-cancel-1" class="ant-button-4 uk-text-small uk-modal-close" type="button">Отменить</button>
-        </center>
-    </div>
-</div>
-
-
+<script>
+    aaa.onclick = function () {
+        alert('Спасибо');
+    };
+</script>

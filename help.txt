@@ -1,1 +1,65 @@
-Yii::$app->basePath 
+Yii::$app->basePath
+
+//----------
+phpstorm
+CTRL+click на классе
+
+CTRL+B на классе - источник
+//------------------
+js min 
+
+'components' => [ // Check that you are inside "components" section
+        'assetManager' => [
+            'class' => 'yii\web\AssetManager',
+            'bundles' => [
+                        'yii\web\JqueryAsset' => [
+                            'js' => [
+                                YII_ENV_DEV ? 'jquery.js' : 'jquery.min.js'
+                            ]
+                        ],
+                        'yii\bootstrap\BootstrapAsset' => [
+                            'css' => [
+                                YII_ENV_DEV ? 'css/bootstrap.css' :         'css/bootstrap.min.css',
+                            ]
+                        ],
+                        'yii\bootstrap\BootstrapPluginAsset' => [
+                            'js' => [
+                                YII_ENV_DEV ? 'js/bootstrap.js' : 'js/bootstrap.min.js',
+                            ]
+                        ]
+            ],
+        ],
+        // ... Some other components
+    ],
+//-----------------
+подключение css js
+$this->registerCssFile("@web/css/mod_cabinet/admin/clients.css");
+$this->registerJsFile(
+    '@web/js/mod_cabinet/admin/mclients.js',
+    ['depends' => [\yii\web\JqueryAsset::className()]]
+);
+//--------------------
+$_POST['edit'] =
+Yii::$app->request->post()['edit'];
+//-----------------
+В модели с activerecord нельзя публиковать переменные которые есть в таблице
+
+//-------------------------
+$this->registerJsFile(
+    '@web/js/mod_cabinet/admin/mclients.js',
+    ['depends' => [\yii\web\JqueryAsset::className()]]
+);
+//------------------------
+<?php foreach ($data as $k2 => $v2){} ?>
+<?php endforeach; ?>
+
+        <?php Pjax::begin(); ?>
+        <a id="aaa" class="btn btn-lg btn-primary" href="/cabinet/admin/search">Обновить3</a>
+
+        <p>Время сервера: <?= $time ?></p>
+        <?php Pjax::end(); ?>
+		
+после foreach pjax не работает
+//-----------------------
+
+

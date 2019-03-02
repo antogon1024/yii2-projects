@@ -1,7 +1,12 @@
 <?php
-$this->registerCssFile("@web/css/mod_cabinet/admin/clubs.css");
-use yii\widgets\LinkPager;
+$this->registerCssFile("@web/css/mod_cabinet/admin/mclubs.css");
 
+$this->registerJsFile(
+    '@web/js/mod_cabinet/admin/mclubs.js',
+    ['depends' => [\yii\web\JqueryAsset::className()]]
+);
+
+use yii\widgets\LinkPager;
 ?>
 
 

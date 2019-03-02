@@ -2,7 +2,7 @@
     display: none;
 }
 
-.ant-input-1, .ant-textarea-1{
+.ant-input-1, .ant-textarea-1, select{
     border: 1px solid #aaa !important;
     border-radius: 5px !important;
     width: 100%;
@@ -15,17 +15,6 @@
 }
 
 .ant-block-1{
-    position: relative;
-}
-
-.ant-icon-cog{
-    position: absolute;
-    left: 85%;
-    top: 35px;
-    display: none;
-}
-
-.ant-block-2{
     margin-bottom: 15px;
 }
 
@@ -36,10 +25,6 @@
 .ant-color-3{
     color: #909496;
     text-decoration: none !important;
-}
-
-.ant-color-4 {
-    color: #52AAE4;
 }
 
 .ant-name-1{
@@ -58,12 +43,6 @@
 .ant-clients{
     font-size: 26px;
     font-weight: bold;
-    margin-left: -25px;
-    margin-right: -25px;
-    background: #FAFAFA;
-    margin-bottom: -25px;
-    padding: 14px;
-    border: 1px solid #F0F0F0;
 }
 
 .ant-clients-1{
@@ -72,20 +51,14 @@
 
 .ant-clients-1{
     color: #999;
-}
-
-.ant-clients-3{
-    color: #E4E4E4;
-    margin: 0 10px;
-    font-size: 20px;
-    vertical-align: 4px;
+    margin-right: 10px;
 }
 
 .ant-clients-2{
     color: #00C906;
 }
 
-.ant-icon-1{
+.ant-photo-1{
     border:2px solid #E5E5E5;
     border-radius:90px;
     margin-bottom: 20px;
@@ -96,11 +69,12 @@
 }
 
 .ant-info-1{
-    background: #fafafa;
+    background: #f4f4f4;
     border-top: 2px solid #f0f0f0;
     margin-left: -25px;
     margin-right: -25px;
     margin-bottom: -25px !important;
+    margin-top: 25px;
     text-align: left;
     font-size:12px;
     font-weight: bold;
@@ -112,7 +86,7 @@
 }
 
 .ant-info-1 div{
-    padding: 0px 25px;
+    padding: 0 25px;
 }
 
 .ant-small-1{
@@ -126,8 +100,7 @@
 }
 
 .ant-margin-2{
-    /*margin: 15px 0px;*/
-    margin-top: 20px;
+    margin: 15px 0;
 }
 
 .ant-address{
@@ -135,13 +108,16 @@
 }
 
 .ant-button-1{
+    margin-top: 60px;
     background: #FF5252;
-    padding:7px 20px;
+    padding: 9px 20px;
     color: #fff;
     font-weight: bold;
-    margin: 0px;
-    border: 0px;
+    margin: 0;
+    border: 0;
     width: 100%;
+    font-size: 16px;
+    cursor: pointer;
 }
 
 .ant-button-2{
@@ -150,8 +126,8 @@
     padding:4px 20px;
     color: #fff;
     font-weight: bold;
-    margin: 0px;
-    border: 0px;
+    margin: 0;
+    border: 0;
     width: 100%;
 }
 
@@ -160,10 +136,13 @@
     padding:4px 20px !important;
     color: #fff !important;
     font-weight: bold;
-    margin: 0px;
+    font-size: 16px;
+    margin: 0;
     border: 1px solid #00CC10;
     border-radius: 5px;
     margin-top: 20px;
+    height: 36px;
+    cursor: pointer;
 }
 
 .ant-button-4{
@@ -173,17 +152,16 @@
     color: #fff;
     font-weight: bold;
     font-size: 12px !important;
-    margin: 0px;
-    border: 0px;
-
+    margin: 0;
+    border: 0;
 }
 
-#ant-club-add{
+#ant-registration-client{
     margin-right: 20px;
 }
 
 .ant-padding-1{
-    padding: 0px !important;
+    padding: 0 !important;
 }
 
 #ant-search-1{
@@ -194,14 +172,14 @@
 .uk-icon-search{
     position: absolute;
     right: 10px;
-    top: -7px;
+    top: -9px;
     padding:10px;
     cursor: pointer;
 }
 
 .ant-list-1 p{
-    margin: 0px;
-    padding: 0px 10px;
+    margin: 0;
+    padding: 0 10px;
 }
 
 .ant-list-1{
@@ -220,6 +198,20 @@
     font-weight: bold;
 }
 
+#birth_day, #birth_month, #birth_year, #ant-tariff-2{
+    border: 1px solid #aaa !important;
+    border-radius: 5px !important;
+    width: 100%;
+    font-weight: bold !important;
+}
+
+.ant-tariff-1{
+    color: #FF5252;
+    font-weight: bold;
+    font-size: 22px;
+    text-transform: uppercase;
+}
+
 .ant-errors{
     font-size: 12px;
     font-weight: bold;
@@ -231,14 +223,52 @@
     margin: 0 10px;
 }
 
+.ant-icon-cog{
+    position: absolute;
+    left: 75%;
+    top: 55px;
+    display: none;
+}
+
+.ant-name-1{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#ant-form-main{
+    margin-top: 20px;
+}
+
+input{
+    border-radius: 0;
+    box-shadow: none;
+    height: 22px;
+    line-height: 22px;
+    color: #636873;
+    border-radius: 25px;
+    font-weight: inherit;
+
+    width: 206px;
+
+    border: 1px solid rgba(0, 0, 0, 0.06);
+
+    display: inline-block;
+
+    padding: 4px 6px;
+    margin-bottom: 13px;
+    font-size: 16px;
+    line-height: 26px;
+}
+
 .pagination{
     width: 100%;
     list-style: none;
     margin-top: 40px;
+    padding: 0;
 }
 
 .pagination > li > a, .pagination > li > span {
-
     float: left;
     padding: 6px 12px;
     margin-left: -1px;
@@ -247,5 +277,31 @@
     text-decoration: none;
     background-color: #fff;
     border: 1px solid #ddd;
+    margin-right: 10px;
 }
+
+.pagination li.active a{
+    font-weight: bold;
+}
+
+.pagination li.disabled span{
+    color: #ccc;
+}
+
+.ant-not-find{
+    width:100%;
+    font-weight:bold;
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
 

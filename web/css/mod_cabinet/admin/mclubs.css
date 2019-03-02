@@ -1,0 +1,258 @@
+#ant-create-2{
+    display: none;
+}
+
+.ant-input-1, .ant-textarea-1{
+    border: 1px solid #aaa !important;
+    border-radius: 5px !important;
+    width: 100%;
+    box-sizing: border-box;
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing: border-box;
+    height: 30px !important;
+    font-weight: bold !important;
+    margin-bottom: 0 !important;
+}
+
+.ant-block-1{
+    position: relative;
+}
+
+.ant-icon-cog{
+    position: absolute;
+    left: 85%;
+    top: 35px;
+    display: none;
+}
+
+.ant-block-2{
+    margin-bottom: 15px;
+}
+
+.ant-textarea-1{
+    height: 60px !important;
+}
+
+.ant-color-3{
+    color: #909496;
+    text-decoration: none !important;
+}
+
+.ant-color-4 {
+    color: #52AAE4;
+}
+
+.ant-name-1{
+    color: #000;
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.ant-label-1{
+    font-size: 12px !important;
+    line-height: 10px;
+    color: #aaa;
+}
+
+.ant-clients{
+    font-size: 26px;
+    font-weight: bold;
+    margin-left: -25px;
+    margin-right: -25px;
+    background: #FAFAFA;
+    margin-bottom: -25px;
+    padding: 14px;
+    border: 1px solid #F0F0F0;
+}
+
+.ant-clients-1{
+    color: #ccc;
+}
+
+.ant-clients-1{
+    color: #999;
+}
+
+.ant-clients-3{
+    color: #E4E4E4;
+    margin: 0 10px;
+    font-size: 20px;
+    vertical-align: 4px;
+}
+
+.ant-clients-2{
+    color: #00C906;
+}
+
+.ant-icon-1{
+    border:2px solid #E5E5E5;
+    border-radius:90px;
+    margin-bottom: 20px;
+}
+
+.ant-li-1{
+    cursor: pointer;
+}
+
+.ant-info-1{
+    background: #fafafa;
+    border-top: 2px solid #f0f0f0;
+    margin-left: -25px;
+    margin-right: -25px;
+    margin-bottom: -25px !important;
+    text-align: left;
+    font-size:12px;
+    font-weight: bold;
+    padding-top: 20px;
+    display: none;
+    position:absolute;
+    width: 100%;
+    z-index: 1;
+}
+
+.ant-info-1 div{
+    padding: 0px 25px;
+}
+
+.ant-small-1{
+    font-size: 10px;
+    color: #aaa;
+    line-height: 10px;
+}
+
+.ant-margin-1{
+    margin-bottom: 15px;
+}
+
+.ant-margin-2{
+    /*margin: 15px 0px;*/
+    margin-top: 20px;
+}
+
+.ant-address{
+    line-height: 15px;
+}
+
+.ant-button-1{
+    background: #FF5252;
+    padding:7px 20px;
+    color: #fff;
+    font-weight: bold;
+    margin: 0px;
+    border: 0px;
+    width: 100%;
+}
+
+.ant-button-2{
+    margin-top: 60px;
+    background: #00CC10;
+    padding:4px 20px;
+    color: #fff;
+    font-weight: bold;
+    margin: 0px;
+    border: 0px;
+    width: 100%;
+}
+
+.ant-button-3{
+    background: #00CC10 !important;
+    padding:4px 20px !important;
+    color: #fff !important;
+    font-weight: bold;
+    margin: 0px;
+    border: 1px solid #00CC10;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.ant-button-4{
+    margin-top: 60px;
+    background: #00CC10;
+    padding:4px 20px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 12px !important;
+    margin: 0px;
+    border: 0px;
+
+}
+
+#ant-club-add{
+    margin-right: 20px;
+}
+
+.ant-padding-1{
+    padding: 0px !important;
+}
+
+#ant-search-1{
+    background: #DFDFDF !important;
+    margin: 0;
+}
+
+.uk-icon-search{
+    position: absolute;
+    right: 10px;
+    top: -7px;
+    padding:10px;
+    cursor: pointer;
+}
+
+.ant-list-1 p{
+    margin: 0px;
+    padding: 0px 10px;
+}
+
+.ant-list-1{
+    width: 200px;
+    border: 1px solid #ccc;
+    background: #fff;
+    display: none;
+}
+
+#ant-angle-1{
+    cursor: pointer;
+}
+
+#ant-angle-2{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.ant-errors{
+    font-size: 12px;
+    font-weight: bold;
+    color: #FF5252;
+    line-height:18px;
+}
+
+#ant-enter{
+    margin: 0 10px;
+}
+
+.pagination{
+    width: 100%;
+    list-style: none;
+    margin-top: 40px;
+    padding: 0;
+}
+
+.pagination > li > a, .pagination > li > span {
+    float: left;
+    padding: 6px 12px;
+    margin-left: -1px;
+    line-height: 1.42857143;
+    color: #337ab7;
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px solid #ddd;
+}
+
+.pagination li.active a{
+    font-weight: bold;
+}
+
+.pagination li.disabled span{
+    color: #ccc;
+}
